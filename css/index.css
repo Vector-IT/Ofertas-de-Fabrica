@@ -1,0 +1,110 @@
+@CHARSET "UTF-8";
+
+@media screen {
+	.imgPortada {
+		background: url('../img/home-portada.jpg') center/cover no-repeat;
+		height: 578px;
+		padding: 200px 0;
+	}
+	
+	.financiada {
+		margin-top: -150px;
+		margin-left: 40px;
+		z-index: 2;
+	}
+
+	.financiada img {
+		width: 20%;
+		height: auto;
+	}
+	
+	.home-titulo {
+		text-align: center;
+		//margin: -80px 20% 0 20%;
+		margin: 20px 20% 0 20%;
+	}
+	
+	.txtDescr {
+	    font-size: 14pt;
+	}
+	
+	.fabricas {
+		margin: 20px 0;
+		text-align: center;
+	}
+	
+	.fabrica img {
+		width: 200px;
+		height: auto;
+	}
+	
+	.home-vivienda {
+		background-color: #F7F7F7;
+		padding: 50px 2%;
+	}
+	
+	.home-vivienda .col-md-4 h3 {
+		padding: 0 20px;
+	} 
+	
+	.home-vivienda .col-md-4 p {
+		min-height: 150px;
+		padding: 20px;
+	}
+	
+	.home-vivienda .industrial {
+		margin: 50px 0;
+	}
+	
+	.industrial .iconos {
+		margin: 25px 10px 0 10px;
+    	padding: 50px 50px 30px 50px;		
+	}
+	
+	.cmbAdicionales {
+		margin: 9px 0 0 10px !important; 
+		min-width: 180px;
+	}
+	
+	.divTipologias {
+		margin: 0 -1%;
+		padding: 20px 0;
+	}
+	
+	divTipologias .col-md-4 {
+		padding: 0 1%;
+	}
+	
+	.imgTipologia {
+		width: 100%;
+		height: 200px;
+	}
+	
+	#rowOfertas {
+	    padding: 50px 2%;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.imgPortada {
+		height: 320px;
+		padding: 50px 0;
+	}
+	
+	.financiada {
+		margin-top: -50px;
+	}
+	
+	.home-titulo {
+		margin: 0;
+	}
+	
+	.home-vivienda .industrial {
+		margin-top: 0;
+	}
+	
+	.cmbAdicionales {
+		margin: 9px 0 !important; 
+		min-width: 100%;
+	}
+}

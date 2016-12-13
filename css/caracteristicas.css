@@ -1,0 +1,128 @@
+@CHARSET "UTF-8";
+
+@media screen {
+	.divCaracteristicas {
+		background-color: #F78E56;
+		color: white;
+		padding: 20px 10px;
+		font-family: 'Abel', sans-serif;
+	}
+	
+	.divCaracteristicas2 {
+		background-color: #B3B3B3;
+		color: white;
+		padding: 20px 10px;
+		font-family: 'Abel', sans-serif;
+		text-align: center;
+	}
+
+	.titulo {
+		font-size: 24pt;
+		margin-top: 20px;
+		margin-left: 15%;
+	}
+	
+	.tituloDesc {
+		margin-left: 15%;
+	}
+	
+	.imgPlano {
+		margin-top: 100px;
+		margin-left: 15%;
+		width: 70%;
+		height: auto;
+	}
+	
+	.textoComun {
+		font-size: 13pt;
+	}
+	
+	.consultanos {
+		border-top: 1px solid white;
+		border-bottom: 1px solid white;
+		font-size: 14pt;
+		padding: 3px 15px;
+	}
+	
+	.seccion {
+		margin-top: 20px;
+	}
+	
+	.placaCemento {
+	    background: url('../img/signo-pesos.png') left no-repeat;
+    	min-height: 155px;
+    	padding: 5px 0;
+	}
+	
+	.aislacion {
+		font-family: 'Abel', sans-serif;
+		background-color: #0CA2F7;
+		color: white;
+		padding: 20px;
+	}
+	
+	.imgVivienda {
+		float: right;
+		width: 200px;
+		heihgt: auto;
+    	margin-right: -15%;
+    	margin-top: -10%;		
+	}
+	
+	.financiacionBanner {
+		background-color: #1E5D3C;
+		color: white;
+		padding: 20px 10px;
+		font-family: 'Abel', sans-serif;
+		text-align: center;
+	}
+	
+	.financiacion {
+		background-color: #3CB878;
+		font-family: 'Abel', sans-serif;
+		color: white;
+		padding: 20px;
+	}
+	
+	.financiacion h4 {
+		font-weight: bold;
+	}
+	
+	.instalaciones {
+		background: url("../img/instalaciones.jpg") center center/cover no-repeat;
+		font-family: 'Abel', sans-serif;
+		color: white;
+	}
+	
+	.instalacionesTitulo {
+		background-color: #FF5C26;
+		padding: 5px;
+		font-size: 24pt;
+		text-align: center;
+		margin-top: 100px;
+	}
+	
+	.instalacionesDesc {
+		background-color: rgba(0, 0, 0, 0.6);
+		padding: 20px 0;
+	}
+	
+	.instalacionesDesc .col-md-3 {
+		padding: 0 35px;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.placaCemento {
+	    background: transparent;
+	    padding: 0 10px;
+	}
+	
+	.aislacion {
+		padding: 0 1%;
+	}
+	
+	.financiacion ul {
+		padding: 0;
+	}
+}

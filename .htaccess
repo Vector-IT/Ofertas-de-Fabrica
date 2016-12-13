@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /Directo de Fabrica/
+RewriteRule ^fabrica/([^/]+)/([^/]+)/? /Directo de Fabrica/tipologia.php?fabrica=$1&tipologia=$2 [L,PT]
+RewriteRule ^fabrica/([^/]*)/? /Directo de Fabrica/fabrica.php?fabrica=$1 [L,PT]
+RewriteRule ^blog/([^/]*)/? /Directo de Fabrica/blog.php?blog=$1 [L,PT]
+
+RewriteCond %{REQUEST_URI}  !\.(css|js|php|html?|shtml|jpg|JPG|gif|png|jpeg|eot|otf|svg|ttf|woff|woff2|pdf)$
+RewriteRule ^(.*)([^/])$ http://%{HTTP_HOST}/$1$2/ [L,R=301]
+</IfModule>

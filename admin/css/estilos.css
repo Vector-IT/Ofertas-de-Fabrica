@@ -1,0 +1,77 @@
+@CHARSET "UTF-8";
+
+@media screen {
+	
+	.onlyMobile {
+		display: none !important;
+	}
+
+	.fixed {
+		position: fixed;
+	}
+		
+	.absolute {
+		position: absolute;
+	}
+	
+	.top5 {
+		top: 5px;
+	}
+	
+	.left5 {
+		left: 5px;
+	}
+	
+	.right5 {
+		right: 5px;
+	}
+	
+	.right3 {
+		right: 3px;
+	}
+	
+	.flLeft {
+		float: left;
+	}
+	
+	.flRight {
+		float: right;
+	}
+	
+	.clearer {
+		clear: both;
+	}
+	
+	.txtMediano {
+		font-size: 16pt;
+	}
+	
+	.thumbnail {
+	    width: 100px;
+	    height: auto;
+	    margin: 10px;
+    }
+    
+    .clickable {
+    	cursor: pointer;
+    }
+    
+    .labelCheck {
+		display: block;
+		cursor: pointer;
+		font-weight: normal;    
+    }
+    
+    .commands {
+		border-left: 1px solid #ddd;
+    	display: inline-block;
+    	padding: 0;
+	}
+	
+}
+
+@media screen and (max-width: 767px) {
+	.onlyMobile {
+		display: inherit !important;
+	}	
+}
