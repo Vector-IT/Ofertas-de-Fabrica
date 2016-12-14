@@ -15,7 +15,13 @@ ini_set("error_log", "php-error.log");
 			$para = 'defabricaofertas@gmail.com';
 		}
 		
-		$titulo = 'Contacto en Ofertas de Fábrica';
+		if (isset($_POST["Titulo"])) {
+			$titulo = $_POST["Titulo"];
+		}
+		else {
+			$titulo = 'Contacto en Ofertas de Fábrica';
+		}
+
 		$mensaje = "Nombre: $nombre<br>E-Mail: $email<br>Mensaje:<br>$mensaje";
 
 		$msjCorreo = '<html><head><title>' . $titulo . '</title></head><body>';

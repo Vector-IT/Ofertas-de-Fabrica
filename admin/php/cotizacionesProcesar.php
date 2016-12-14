@@ -98,10 +98,78 @@
 
 			$result = ejecutarCMD($strSQL);
 			
-			if (!$result)
+			if ($result !== true) {
 				echo "Error";
-			else 
+			}
+			else {
+				$strSQL = "SELECT c.TipoCoti, c.FechCoti, t.NombTipo, t.NombFabr, t.Imagen, t.Logo, t.Email EmailFabr,";
+				$strSQL.= " c.Nombre, c.Telefono, c.Email, c.Adicionales, c.Precio, c.Entrega,";
+				$strSQL.= " c.Porcentaje, c.CantCuotas, c.MontoCuota, t.Imagen ImagenTipo, t.PrecioKm, c.Distancia";
+				$strSQL.= " FROM cotizaciones c";
+				$strSQL.= " INNER JOIN (SELECT t.NumeTipo, t.NombTipo, t.Imagen, f.NombFabr, f.Logo, f.PrecioKm, f.Email";
+				$strSQL.= "				FROM tipologias t";
+				$strSQL.= "				INNER JOIN fabricas f ON t.NumeFabr = f.NumeFabr";
+				$strSQL.= "				) t ON c.NumeTipo = t.NumeTipo";
+				$strSQL.= " WHERE c.NumeCoti = " . $NumeCoti;
+				
+				$tabla = cargarTabla($strSQL);
+				$fila = $tabla->fetch_array();
+				
+				$precioTras = round(floatval(str_replace(' km', '', $fila["Distancia"]) * $fila["PrecioKm"]), 2);
+
+				$Mensaje = "<br><h3>Vivienda seleccionada</h3>";
+				$Mensaje.= '<img src="http://'. $_SERVER['HTTP_HOST'].'/admin/'.$fila["Logo"].'" style="width:150px; height:auto;"/><br>';
+				$Mensaje.= '<strong>'. $fila["NombTipo"] .'</strong><br>';
+				$Mensaje.= "Precio: $". $fila["Precio"] ."<br>";
+				$Mensaje.= "Distancia del traslado: {$fila["Distancia"]}<br>";
+				$Mensaje.= "Precio del traslado: $". $precioTras ."<br><br>";
+				$Mensaje.= "<h3>M&eacute;todo de pago</h3>";
+				switch ($fila["TipoCoti"]) {
+					case "1":
+						$Mensaje.= "Venta directa<br>";
+						break;
+					case "2":
+						$Mensaje.= "Financiaci&oacute;n";
+						$Mensaje.= '<div style="font-weight: normal !important;">Entrega: $' . $fila["Entrega"];
+						$Mensaje.= '<br>Cantidad de cuotas: ' . $fila["CantCuotas"];
+						$Mensaje.= '<br>Monto de la cuota: $' . $fila["MontoCuota"];
+						$Mensaje.= '</div>';
+						break;
+					case "3":
+						$Mensaje.= "Plan a medida<br><br>";
+						break;
+				}				
+				$Mensaje.= "<h3>Datos de contacto</h3>";
+				$Mensaje.= "Nombre: {$fila["Nombre"]}<br>";
+				$Mensaje.= "Tel&eacute;fono: {$fila["Telefono"]}<br>";
+				$Mensaje.= "Email: {$fila["Email"]}<br>";
+
+				$url = 'http://'. $_SERVER['HTTP_HOST'].$raiz.'admin/php/enviarMail.php';
+				$fields = array(
+					'Para' => $fila["EmailFabr"].",".$fila["Email"],
+					'Email' => $fila["Email"],
+					'Nombre' => $fila["Nombre"],
+					'Titulo' => "Ofertas de Fabrica - Cotizacion recibida",
+					'Mensaje' => $Mensaje
+				);
+				$datos = http_build_query($fields);
+					
+				//open connection
+				$handle = curl_init();
+				curl_setopt($handle, CURLOPT_URL, $url);
+				curl_setopt($handle, CURLOPT_POST, true);
+				curl_setopt($handle, CURLOPT_POSTFIELDS, $fields);
+				curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);
+				curl_setopt($handle, CURLOPT_SSL_VERIFYPEER, false);
+				
+				//execute post
+				$response = curl_exec($handle);
+				
+				//close connection
+				curl_close($handle);
+
 				echo "EXITO-{$NumeCoti}";
+			}
 
 			break;
 

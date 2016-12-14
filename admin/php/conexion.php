@@ -4,7 +4,7 @@
 	$dbuser = "ddefabrica";
 	$dbpass = "vector";
 	$crlf = "\n";
-	$raiz = "/Directo de Fabrica/";
+	$raiz = "/Ofertas-de-Fabrica/";
 	
 	function ejecutarCMD($strSQL) {
 		global $dbhost, $dbuser, $dbpass, $db, $crlf;
