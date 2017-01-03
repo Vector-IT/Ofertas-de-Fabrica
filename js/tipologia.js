@@ -378,6 +378,11 @@ function validarCoti() {
 	var numeTipo = $("#hdnNumeTipo").val();
 	var tipoCoti = $("#hdnTipoCoti").val();
 
+	/*
+    if ($('#latlng').val().trim().length == 0) {
+        mensaje+= "Debe seleccionar la ubicación en el mapa.<br>";
+    }
+	*/
     if ($('#nombre').val().trim().length == 0) {
         mensaje+= "El Nombre no puede estar vac&iacute;o.<br>";
         $('#nombre').parent().addClass("has-error");

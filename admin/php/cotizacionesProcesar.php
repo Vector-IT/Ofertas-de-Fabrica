@@ -116,7 +116,7 @@
 			else {
 				$strSQL = "SELECT c.TipoCoti, c.FechCoti, t.NombTipo, t.NombFabr, t.Imagen, t.Logo, t.Email EmailFabr,";
 				$strSQL.= " c.Nombre, c.Telefono, c.Email, c.Adicionales, c.Precio, c.Entrega,";
-				$strSQL.= " c.Porcentaje, c.CantCuotas, c.MontoCuota, t.Imagen ImagenTipo, t.PrecioKm, c.Distancia";
+				$strSQL.= " c.Porcentaje, c.CantCuotas, c.MontoCuota, t.Imagen ImagenTipo, t.PrecioKm, c.Distancia,";
 				$strSQL.= " c.Provincia, c.Ciudad";
 				$strSQL.= " FROM cotizaciones c";
 				$strSQL.= " INNER JOIN (SELECT t.NumeTipo, t.NombTipo, t.Imagen, f.NombFabr, f.Logo, f.PrecioKm, f.Email";
@@ -228,7 +228,8 @@
 		case 10: //LISTAR
 			$strSQL = "SELECT c.NumeCoti, c.NumeTipo, t.NombFabr, t.NombTipo, c.TipoCoti, c.FechCoti,";
 			$strSQL.= " c.NumeEsta, c.Nombre, c.Telefono, c.Email, c.Adicionales, c.Precio, c.Entrega,";
-			$strSQL.= " c.Porcentaje, c.CantCuotas, c.MontoCuota, c.LatLng, c.Distancia, c.Dispone, c.HoraCont";
+			$strSQL.= " c.Porcentaje, c.CantCuotas, c.MontoCuota, c.LatLng, c.Distancia, c.Dispone, c.HoraCont,";
+			$strSQL.= " c.Provincia, c.Ciudad";
 			$strSQL.= " FROM cotizaciones c";
 			$strSQL.= " INNER JOIN (SELECT t.NumeTipo, t.NombTipo, f.NombFabr";
 			$strSQL.= "				FROM tipologias t";
@@ -255,6 +256,7 @@
 				$salida.= $crlf.'<th>Datos</th>';
 				$salida.= $crlf.'<th>Dispone</th>';
 				$salida.= $crlf.'<th>Hora de Contacto</th>';
+				$salida.= $crlf.'<th>Prov - Ciudad</th>';
 				$salida.= $crlf.'<th>Estado</th>';
 				$salida.= $crlf.'<th></th>';
 				$salida.= $crlf.'<th></th>';
@@ -303,6 +305,9 @@
 					
 					//Hora de contacto
 					$salida.= $crlf.'<td>'.$fila["HoraCont"].'</td>';
+					
+					//Provincia y Ciudad
+					$salida.= $crlf.'<td>'.$fila["Provincia"].'<br>'.$fila["Ciudad"].'</td>';
 					
 					//Estado
 					if ($fila["NumeEsta"] == "0")

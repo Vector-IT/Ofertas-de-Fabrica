@@ -8,12 +8,12 @@ ini_set("error_log", "php-error.log");
 		$mensaje = $_POST['Mensaje'];
 		
 		if (isset($_POST["Para"])) {
-			//$para = 'jmperro@gmail.com';
 			$para = $_POST["Para"];
+			//$para = 'jmperro@gmail.com';
 		}
 		else {
-			//$para = 'jmperro@gmail.com';
 			$para = 'defabricaofertas@gmail.com';
+			//$para = 'jmperro@gmail.com';
 		}
 		
 		if (isset($_POST["Titulo"])) {
