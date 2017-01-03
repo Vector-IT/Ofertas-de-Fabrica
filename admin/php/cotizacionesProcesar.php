@@ -88,13 +88,25 @@
 	}
 	else
 		$HoraCont = "";
+
+	if (isset($_POST["Provincia"]) && $_POST["Provincia"] != "") {
+		$Provincia = str_replace("'", "\'", $_POST["Provincia"]);
+	}
+	else
+		$Provincia = "";
+	
+	if (isset($_POST["Ciudad"]) && $_POST["Ciudad"] != "") {
+		$Ciudad = str_replace("'", "\'", $_POST["Ciudad"]);
+	}
+	else
+		$Ciudad = "";
 	
 	switch ($operacion) {
 		case 0: //INSERT
 			$NumeCoti = buscarDato("SELECT COALESCE(MAX(NumeCoti), 0) + 1 Numero FROM cotizaciones");
 			
-			$strSQL = "INSERT INTO cotizaciones(NumeCoti, NumeTipo, TipoCoti, FechCoti, NumeEsta, Nombre, Telefono, Email, Adicionales, Precio, Entrega, Porcentaje, CantCuotas, MontoCuota, LatLng, Distancia, Dispone, HoraCont)";
-			$strSQL.= " VALUES({$NumeCoti}, {$NumeTipo}, {$TipoCoti}, SYSDATE(), 1, '{$Nombre}', '{$Telefono}', '{$Email}', '{$Adicionales}', {$Precio}, {$Entrega}, {$Porcentaje}, {$CantCuotas}, {$MontoCuota}, '{$LatLng}', '{$Distancia}', '{$Dispone}', '{$HoraCont}')";
+			$strSQL = "INSERT INTO cotizaciones(NumeCoti, NumeTipo, TipoCoti, FechCoti, NumeEsta, Nombre, Telefono, Email, Adicionales, Precio, Entrega, Porcentaje, CantCuotas, MontoCuota, LatLng, Distancia, Dispone, HoraCont, Provincia, Ciudad)";
+			$strSQL.= " VALUES({$NumeCoti}, {$NumeTipo}, {$TipoCoti}, SYSDATE(), 1, '{$Nombre}', '{$Telefono}', '{$Email}', '{$Adicionales}', {$Precio}, {$Entrega}, {$Porcentaje}, {$CantCuotas}, {$MontoCuota}, '{$LatLng}', '{$Distancia}', '{$Dispone}', '{$HoraCont}', '{$Provincia}', '{$Ciudad}')";
 
 			$result = ejecutarCMD($strSQL);
 			
@@ -105,6 +117,7 @@
 				$strSQL = "SELECT c.TipoCoti, c.FechCoti, t.NombTipo, t.NombFabr, t.Imagen, t.Logo, t.Email EmailFabr,";
 				$strSQL.= " c.Nombre, c.Telefono, c.Email, c.Adicionales, c.Precio, c.Entrega,";
 				$strSQL.= " c.Porcentaje, c.CantCuotas, c.MontoCuota, t.Imagen ImagenTipo, t.PrecioKm, c.Distancia";
+				$strSQL.= " c.Provincia, c.Ciudad";
 				$strSQL.= " FROM cotizaciones c";
 				$strSQL.= " INNER JOIN (SELECT t.NumeTipo, t.NombTipo, t.Imagen, f.NombFabr, f.Logo, f.PrecioKm, f.Email";
 				$strSQL.= "				FROM tipologias t";
@@ -143,6 +156,8 @@
 				$Mensaje.= "Nombre: {$fila["Nombre"]}<br>";
 				$Mensaje.= "Tel&eacute;fono: {$fila["Telefono"]}<br>";
 				$Mensaje.= "Email: {$fila["Email"]}<br>";
+				$Mensaje.= "Provincia: {$fila["Provincia"]}<br>";
+				$Mensaje.= "Ciudad: {$fila["Ciudad"]}<br>";
 
 				$url = 'http://'. $_SERVER['HTTP_HOST'].$raiz.'admin/php/enviarMail.php';
 				$fields = array(

@@ -35,7 +35,6 @@ $(function() {
 
     			xmlhttp.open("POST","admin/php/loginProcesar.php",true);
     			xmlhttp.send(frmData);
-    			return false;
                 break;
             	
             case "contacto-form":
@@ -86,7 +85,6 @@ $(function() {
 						xmlhttp.send(frmData);
 					}
 				);
-    			return false;
             	break;
             
             case "consulta-form":
@@ -145,10 +143,10 @@ $(function() {
 
 					}
 				);
-
-    			return false;
             	break;
         }
+
+		return false;
     });
     
     function msgChange($divMensaje, $divBotones, respuesta, mensaje, refresh) {

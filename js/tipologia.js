@@ -137,6 +137,8 @@ $(document).ready(function() {
             frmData.append("Distancia", $("#distancia").val());
             frmData.append("Dispone", $("#dispone").val());
             frmData.append("HoraCont", $("#horadesde").val() + " - " + $("#horahasta").val());
+			frmData.append("Provincia", $("#provincia").val());
+			frmData.append("Ciudad", $("#txtCiudad").val());
 
 			if (window.XMLHttpRequest)
 			{// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -375,7 +377,7 @@ function validarCoti() {
 	var mensaje = "";
 	var numeTipo = $("#hdnNumeTipo").val();
 	var tipoCoti = $("#hdnTipoCoti").val();
-	
+
     if ($('#nombre').val().trim().length == 0) {
         mensaje+= "El Nombre no puede estar vac&iacute;o.<br>";
         $('#nombre').parent().addClass("has-error");
@@ -394,6 +396,11 @@ function validarCoti() {
 	    }
     }
     
+	if ($('#txtCiudad').val().trim().length == 0) {
+        mensaje+= "La Ciudad no puede estar vac&iacute;a.<br>";
+        $('#txtCiudad').parent().addClass("has-error");
+    }
+
     if (mensaje != "") {
 		$("#txtHintCoti").html(mensaje);
 		$("#divMsjCoti").removeClass("alert-success");

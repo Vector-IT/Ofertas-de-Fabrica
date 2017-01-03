@@ -244,6 +244,37 @@
 								<div><input type="email" id="email" class="form-control" placeholder="E-mail" /></div>
 								<br>
 								<div class="form-group">
+									<label for="provincia">Provincia:</label>
+									<select class="form-control" id="provincia" required>
+										<option>Capital Federal</option>
+										<option>Buenos Aires</option>
+										<option>Catamarca</option>
+										<option>Córdoba</option>
+										<option>Corrientes</option>
+										<option>Chaco</option>
+										<option>Chubut</option>
+										<option>Entre Ríos</option>
+										<option>Formosa</option>
+										<option>Jujuy</option>
+										<option>La Pampa</option>
+										<option>La Rioja</option>
+										<option>Mendoza</option>
+										<option>Misiones</option>
+										<option>Neuquén</option>
+										<option>Río Negro</option>
+										<option>Salta</option>
+										<option>San Juan</option>
+										<option>San Luis</option>
+										<option>Santa Cruz</option>
+										<option>Santa Fe</option>
+										<option>Santiago del Estero</option>
+										<option>Tierra del Fuego</option>
+										<option>Tucumán</option>
+									</select>
+								</div>			
+								<div><input type="text" id="txtCiudad" class="form-control" placeholder="Ciudad" /></div>
+								<br>
+								<div class="form-group">
 									<label for="dispone">Dispone de:</label>
 									<select class="form-control" id="dispone" required>
 										<option>NADA</option>

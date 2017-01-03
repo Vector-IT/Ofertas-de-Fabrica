@@ -8,6 +8,7 @@ ini_set("error_log", "php-error.log");
 		$mensaje = $_POST['Mensaje'];
 		
 		if (isset($_POST["Para"])) {
+			//$para = 'jmperro@gmail.com';
 			$para = $_POST["Para"];
 		}
 		else {

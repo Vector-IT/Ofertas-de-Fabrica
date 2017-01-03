@@ -28,7 +28,9 @@
 	</head>
 	<body>
 	<?php 
-		$strSQL = "SELECT c.NumeCoti, c.NumeTipo, t.NombFabr, t.NombTipo, c.TipoCoti, c.FechCoti, c.NumeEsta, c.Nombre, c.Telefono, c.Email, c.Adicionales, c.Precio, c.Entrega, c.Porcentaje, c.CantCuotas, c.MontoCuota";
+		$strSQL = "SELECT c.NumeCoti, c.NumeTipo, t.NombFabr, t.NombTipo, c.TipoCoti, c.FechCoti, c.NumeEsta,";
+		$strSQL.= " c.Nombre, c.Telefono, c.Email, c.Adicionales, c.Precio, c.Entrega, c.Porcentaje, c.CantCuotas,";
+		$strSQL.= " c.MontoCuota, c.Provincia, c.Ciudad";
 		$strSQL.= " FROM cotizaciones c";
 		$strSQL.= " INNER JOIN (SELECT t.NumeTipo, t.NombTipo, f.NombFabr";
 		$strSQL.= "				FROM tipologias t";
@@ -51,6 +53,8 @@
 			$salida.= $crlf.'<th>Tipo de cotizaci&oacute;n</th>';
 			$salida.= $crlf.'<th>Datos de financiaci&oacute;n</th>';
 			$salida.= $crlf.'<th>Datos de contacto</th>';
+			$salida.= $crlf.'<th>Provincia</th>';
+			$salida.= $crlf.'<th>Ciudad</th>';
 			$salida.= $crlf.'<th>Estado</th>';
 			$salida.= $crlf.'</tr>';
 				
@@ -90,6 +94,10 @@
 				$salida.= $crlf.'<td>'.$fila["Nombre"].'<br>';
 				$salida.= $crlf.$fila["Telefono"].'<br>';
 				$salida.= $crlf.$fila["Email"].'</td>';
+				//Provincia
+				$salida.= $crlf.'<td>'.$fila["Provincia"].'</td>';
+				//Ciudad
+				$salida.= $crlf.'<td>'.$fila["Ciudad"].'</td>';
 				//Estado
 				if ($fila["NumeEsta"] == "0")
 					$salida.= $crlf.'<td>Inactiva</td>';
