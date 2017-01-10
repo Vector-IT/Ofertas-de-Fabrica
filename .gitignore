@@ -50,3 +50,5 @@ admin/imgBlog/*.*
 admin/imgFabricas/*.*
 admin/imgTipologias/*.*
 admin/imgTipologias/galerias/*.*
+
+.settings

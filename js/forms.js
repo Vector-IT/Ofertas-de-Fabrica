@@ -144,6 +144,9 @@ $(function() {
 					}
 				);
             	break;
+            	
+            default: 
+            	return true;
         }
 
 		return false;
