@@ -376,8 +376,13 @@
 				</div>
 			</div>
 			<div class="modal-footer" id="divBotones">
-				<button class="btn btn-default oculto" id="btnAtras">Atr&aacute;s</button>
-				<button class="btn btn-danger" id="btnSiguiente" data-fin="0">Siguiente</button>
+				<div id="actualizando" class="alert alert-info" role="alert" style="display:none;">
+					<i class="fa fa-refresh fa-fw fa-spin"></i> Guardando datos, por favor espere...
+				</div>
+				<div id="divButtons">
+					<button class="btn btn-default oculto" id="btnAtras">Atr&aacute;s</button>
+					<button class="btn btn-danger" id="btnSiguiente" data-fin="0">Siguiente</button>
+				</div>
 			</div>
 		</div>
 	</div>

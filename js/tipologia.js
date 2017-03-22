@@ -119,6 +119,10 @@ $(document).ready(function() {
                 return;
 			}
 			
+			$("#divButtons").fadeOut(function() {
+				$("#actualizando").fadeIn();
+			});
+
             var frmData = new FormData();
 
             frmData.append("operacion", 0);
@@ -500,18 +504,24 @@ function calcDistancia(geocoder) {
 				var results = response.rows[i].elements;
 				for (var j = 0; j < results.length; j++) {
 					var element = results[j];
-					var distance = element.distance.text;
-					var duration = element.duration.text;
-					var from = origins[i];
-					var to = destinations[j];
-					
-					$("#distancia").val(distance);
-					
-					var preciokm = $("#preciokm").val();
-					var flete = distance.replace(' km', '') * preciokm;
-					flete = "$ " + Math.round(flete * 100) / 100;
-					$("#txtDistancia").html("Distancia de traslado: " + distance);
-					$("#txtFlete").html("Precio total del traslado: " + flete);
+					if (element.status == 'OK') {
+						var distance = element.distance.text;
+						var duration = element.duration.text;
+						var from = origins[i];
+						var to = destinations[j];
+						
+						$("#distancia").val(distance);
+						
+						var preciokm = $("#preciokm").val();
+						var flete = Math.round(element.distance.value / 1000  * 10) / 10 * preciokm;
+						flete = "$ " + Math.round(flete * 100) / 100;
+						$("#txtDistancia").html("Distancia de traslado: " + distance);
+						$("#txtFlete").html("Precio total del traslado: " + flete);
+					}
+					else {
+						$("#txtDistancia").html("Imposible calcular la distancia al punto seleccionado!");
+						$("#txtFlete").html("");
+					}
 				}
 			}
 		}
