@@ -510,10 +510,10 @@ function calcDistancia(geocoder) {
 						var from = origins[i];
 						var to = destinations[j];
 						
-						$("#distancia").val(distance);
+						$("#distancia").val(Math.round(element.distance.value / 1000  * 10) / 10);
 						
 						var preciokm = $("#preciokm").val();
-						var flete = Math.round(element.distance.value / 1000  * 10) / 10 * preciokm;
+						var flete = $("#distancia").val() * preciokm;
 						flete = "$ " + Math.round(flete * 100) / 100;
 						$("#txtDistancia").html("Distancia de traslado: " + distance);
 						$("#txtFlete").html("Precio total del traslado: " + flete);

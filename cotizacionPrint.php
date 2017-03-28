@@ -46,7 +46,7 @@
 					Precio: $<?php echo $cotizacion["Precio"];?>
 				</div>
 				<div>
-					Distancia del traslado: <?php echo $cotizacion["Distancia"];?>
+					Distancia del traslado: <?php echo $cotizacion["Distancia"];?> km
 				</div>
 				<div>
 					<?php

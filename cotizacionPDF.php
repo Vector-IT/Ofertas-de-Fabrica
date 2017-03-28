@@ -46,7 +46,7 @@ $pdf->Ln(12);
 $pdf->Cell(15, 20, utf8_decode("Precio:"));
 $pdf->Cell(30, 20, utf8_decode("$" . $cotizacion["Precio"]));
 $pdf->Ln(6);
-$pdf->Cell(25, 20, utf8_decode("Distancia de traslado: " . $cotizacion["Distancia"]));
+$pdf->Cell(25, 20, utf8_decode("Distancia de traslado: " . $cotizacion["Distancia"] . " km"));
 $pdf->Ln(6);
 $precio = round(floatval(str_replace(' km', '', $cotizacion["Distancia"]) * $cotizacion["PrecioKm"]), 2); 
 $pdf->Cell(25, 20, utf8_decode("Precio del traslado: $ " . $precio));
