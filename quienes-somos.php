@@ -19,7 +19,7 @@
 		
 		<div class="row">
 			<div class="col-md-4 marginTop40">
-				<img alt="" src="img/videos.jpg" style="width: 100%; height: auto;" />
+				<img alt="" src="img/quienes-somos.jpg" style="width: 100%; height: auto;" />
 			</div>
 			<div class="col-md-7 marginTop40">
 				<p class="txtBig" style="text-align: justify;">

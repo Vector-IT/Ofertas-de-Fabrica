@@ -216,7 +216,7 @@
 				 -->
 			</div>
 			<div class="col-md-4">
-				<img alt="" src="img/contacto.jpg" style="width: 100%; height: auto;" />
+				<img alt="" src="img/contacto2.jpg" style="width: 100%; height: auto;" />
 			</div>
 		</div>
 	</div>
