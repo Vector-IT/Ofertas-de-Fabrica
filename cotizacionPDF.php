@@ -6,9 +6,10 @@ $numeCoti = $_GET["NumeCoti"];
 
 $strSQL = "SELECT c.TipoCoti, c.FechCoti, t.NombTipo, t.NombFabr, t.Imagen, t.Logo,";
 $strSQL.= " c.Nombre, c.Telefono, c.Email, c.Adicionales, c.Precio, c.Entrega,";
-$strSQL.= " c.Porcentaje, c.CantCuotas, c.MontoCuota, t.Imagen ImagenTipo, t.PrecioKm, c.Distancia";
+$strSQL.= " c.Porcentaje, c.CantCuotas, c.MontoCuota, t.Imagen ImagenTipo, t.PrecioKm, c.Distancia,";
+$strSQL.= " chkBano, chkGriferia, chkPinturaExt, chkPinturaInt, chkBacha, chkMesada, chkBajoMesada, chkAlacena, chkTanqueAgua, chkElectrico";
 $strSQL.= " FROM cotizaciones c";
-$strSQL.= " INNER JOIN (SELECT t.NumeTipo, t.NombTipo, t.Imagen, f.NombFabr, f.Logo, f.PrecioKm";
+$strSQL.= " INNER JOIN (SELECT t.NumeTipo, t.NombTipo, t.Imagen, f.NombFabr, f.Logo, f.PrecioKm, chkBano, chkGriferia, chkPinturaExt, chkPinturaInt, chkBacha, chkMesada, chkBajoMesada, chkAlacena, chkTanqueAgua, chkElectrico";
 $strSQL.= "				FROM tipologias t";
 $strSQL.= "				INNER JOIN fabricas f ON t.NumeFabr = f.NumeFabr";
 $strSQL.= "				) t ON c.NumeTipo = t.NumeTipo";
@@ -53,9 +54,58 @@ $pdf->Cell(25, 20, utf8_decode("Precio del traslado: $ " . $precio));
 $pdf->Ln(14);
 
 $pdf->Cell(25, 6, utf8_decode("Adicionales:"));
-$pdf->MultiCell(150, 6, utf8_decode($cotizacion["Adicionales"]));
+//$pdf->MultiCell(150, 6, utf8_decode($cotizacion["Adicionales"]));
+if ($cotizacion["chkBano"]) {
+	$pdf->Cell(0, 20, utf8_decode("Baño"));
+	$pdf->Ln(6);
+}
+if ($cotizacion["chkGriferia"]) {
+	$pdf->Cell(25);
+	$pdf->Cell(0, 20, utf8_decode("Grifería"));
+	$pdf->Ln(6);
+}
+if ($cotizacion["chkPinturaExt"]) {
+	$pdf->Cell(25);
+	$pdf->Cell(0, 20, utf8_decode("Pintura exterior"));
+	$pdf->Ln(6);
+}
+if ($cotizacion["chkPinturaInt"]) {
+	$pdf->Cell(25);
+	$pdf->Cell(0, 20, utf8_decode("Pintura interior"));
+	$pdf->Ln(6);
+}
+if ($cotizacion["chkBacha"]) {
+	$pdf->Cell(25);
+	$pdf->Cell(0, 20, utf8_decode("Bacha"));
+	$pdf->Ln(6);
+}
+if ($cotizacion["chkMesada"]) {
+	$pdf->Cell(25);
+	$pdf->Cell(0, 20, utf8_decode("Mesada"));
+	$pdf->Ln(6);
+}
+if ($cotizacion["chkBajoMesada"]) {
+	$pdf->Cell(25);
+	$pdf->Cell(0, 20, utf8_decode("Bajo mesada"));
+	$pdf->Ln(6);
+}
+if ($cotizacion["chkAlacena"]) {
+	$pdf->Cell(25);
+	$pdf->Cell(0, 20, utf8_decode("Alacena"));
+	$pdf->Ln(6);
+}
+if ($cotizacion["chkTanqueAgua"]) {
+	$pdf->Cell(25);
+	$pdf->Cell(0, 20, utf8_decode("Tanque de agua"));
+	$pdf->Ln(6);
+}
+if ($cotizacion["chkElectrico"]) {
+	$pdf->Cell(25);
+	$pdf->Cell(0, 20, utf8_decode("Kit eléctrico"));
+	$pdf->Ln(6);
+}
 
-//$pdf->Ln(5);
+$pdf->Ln(15);
 
 //$pdf->Image('img/cotizar.png', 13, 85, 30);
 $pdf->SetFont('Arial', 'U', 16);
