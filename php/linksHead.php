@@ -6,8 +6,8 @@
 <link rel="shortcut icon" href="img/logo.png" type="image/png" />
 <link rel="apple-touch-icon" href="img/logo.png"/>
 
-<?php if (!strpos($_SERVER['QUERY_STRING'], 'tipologia=')) {?>
-<!-- HOLA -->
+<?php if ((strpos($_SERVER['QUERY_STRING'], 'tipologia=') === false) && (strpos($_SERVER['QUERY_STRING'], 'fabrica=') === false)) {?>
+
 <meta property="og:title" content="Ofertas de Fábrica!" />
 <meta property="og:image" content="http://ofertasdefabrica.com.ar/img/logo2.png" />
 <meta property="og:description" content="El sitio donde podrás encontrar las mejores ofertas y descuentos especiales de diferentes empresas desarrollistas de viviendas" />

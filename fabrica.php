@@ -26,6 +26,11 @@
 	
 	<link href="<?php echo $raiz;?>css/fabrica.css" rel="stylesheet" type="text/css">
 	<link href="<?php echo $raiz;?>admin/css/wysihtml-stylesheet.css" rel="stylesheet" type="text/css">
+
+    <meta property="og:title" content="<?php echo $fabrica["NombFabr"]?>" />
+    <meta property="og:description" content="Ofertas de Fábrica! El sitio donde podrás encontrar las mejores ofertas y descuentos especiales de diferentes empresas desarrollistas de viviendas" />
+	<meta property="og:image" content="http://ofertasdefabrica.com.ar/admin/<?php echo $fabrica["Logo"]?>" />
+	
 </head>
 <body>
 	<?php include_once 'php/header.php';?>
