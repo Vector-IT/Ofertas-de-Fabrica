@@ -278,13 +278,71 @@
 				}
 			});
 		}
+
+		function borrarVarias() {
+		    
+			var strNumeCoti = '';
+
+			for (I = 0; I < $("input[name='chkNumeCoti']").size(); I++) {
+				var chkCoti = $($("input[name='chkNumeCoti']")[I]);
+
+				if (chkCoti.prop("checked")) {
+					if (strNumeCoti != '') {
+						strNumeCoti+= ', ';
+					}
+
+					strNumeCoti+= chkCoti.val();
+				}
+			}
+			
+			if (strNumeCoti != '') {
+				if (confirm("Seguro que desea borrar las cotizaciones " + strNumeCoti + "?")) {
+					 $('#actualizando').css('display', 'block');
+					var frmData = new FormData();
+					frmData.append("operacion", 3);
+					frmData.append("NumeCoti", strNumeCoti);
+
+					if (window.XMLHttpRequest)
+					{// code for IE7+, Firefox, Chrome, Opera, Safari
+						xmlhttp = new XMLHttpRequest();
+					}
+					else
+					{// code for IE6, IE5
+						xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+					}
+					
+					xmlhttp.onreadystatechange = function() {
+						if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+							$("#txtHint").html(xmlhttp.responseText);
+							
+							if (xmlhttp.responseText.indexOf('Error') == -1) {
+								$("#divMsj").removeClass("alert-danger");
+								$("#divMsj").addClass("alert-success");
+								listar();
+								editar(0);
+							}
+							else {
+								$("#divMsj").removeClass("alert-success");
+								$("#divMsj").addClass("alert-danger");
+							}
+								
+							$('#actualizando').css('display', 'none');
+							$("#divMsj").show();
+						}
+					};
+
+					xmlhttp.open("POST","php/cotizacionesProcesar.php",true);
+					xmlhttp.send(frmData);
+				}
+			}
+		}
 	</script>
 <body>
 	<?php
 		include 'php/menu.php';
 	?>
 
-	<div class="container">
+	<div class="container-fluid">
 		<div class="page-header">
 			<h2>Cotizaciones</h2>
 		</div>
@@ -404,6 +462,7 @@
 		
 		<p>		
 			<button class="btn btn-default" onclick="location.href = 'php/cotizacionesExcel.php';"><i class="fa fa-file-excel-o"></i> Exportar a Excel</button>
+			<button class="btn btn-danger" onclick="borrarVarias()"><i class="fa fa-trash"></i> Borrar varias</button>
 		</p>
 		<div class="table-responsive" id="divDatos">
 		</div>		

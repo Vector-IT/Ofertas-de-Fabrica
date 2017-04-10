@@ -224,6 +224,17 @@
 			else
 				echo "EXITO";
 			break;
+		
+		case 3: //DELETE MULTIPLE
+			$strSQL = "DELETE FROM cotizaciones WHERE NumeCoti IN (" . $NumeCoti . ")";
+				
+			$result = ejecutarCMD($strSQL);
+				
+			if (!$result)
+				echo "Error";
+			else
+				echo "EXITO";
+			break;
 
 		case 10: //LISTAR
 			$strSQL = "SELECT c.NumeCoti, c.NumeTipo, t.NombFabr, t.NombTipo, c.TipoCoti, c.FechCoti,";
@@ -266,7 +277,7 @@
     				$salida.= $crlf.'<tr>';
 	    					 
 					//Numero
-					$salida.= $crlf.'<td id="NumeCoti'.$fila[0].'">'.$fila[0];
+					$salida.= $crlf.'<td id="NumeCoti'.$fila[0].'"><input name="chkNumeCoti" type="checkbox" value="'.$fila[0].'"> '.$fila[0];
 					
 					$salida.= $crlf.'<input type="hidden" id="NumeTipo'.$fila[0].'" value="'.$fila["NumeTipo"].'" />';
 					$salida.= $crlf.'<input type="hidden" id="TipoCoti'.$fila[0].'" value="'.$fila["TipoCoti"].'" />';
