@@ -31,7 +31,7 @@
 			<div class="col-md-4">
 				<p class="rojo txtBold">TEL&Eacute;FONOS</p>
 				<p>0351 - 7543 125</p>
-				<p>0351 - 3085 487</p>
+				<p>0351 - 8145 421</p>
 			</div>
 			
 		</div>
@@ -71,7 +71,7 @@
 				<h4 class="modal-title" id="lblWhatsapp">Contactarnos por WhatsApp</h4>
 			</div>
 			<div class="modal-body">
-				<p>Para contactarnos por WhatsApp agregue el siguiente n&uacute;mero <a href="tel:3515555555">3515555555</a>
+				<p>Para contactarnos por WhatsApp agregue el siguiente n&uacute;mero <a href="tel:3517543125">351 754-3125</a>
 				<p>Haga click en el siguiente link para comenzar a chatear</p>
 				<?php
 					$useragent=$_SERVER['HTTP_USER_AGENT'];
