@@ -5,7 +5,7 @@
 	if (isset($_GET["blog"])) {
 		$dominioBlog = $_GET["blog"];
 
-		$blog = cargarTabla("SELECT NumeBlog, Dominio, Titulo, Imagen, Descripcion, DATE_FORMAT(Fecha, '%Y-%m-%d') Fecha FROM blog WHERE Dominio = '{$dominioBlog}'");
+		$blog = cargarTabla("SELECT NumeBlog, Dominio, Titulo, Imagen, Copete, Descripcion, DATE_FORMAT(Fecha, '%Y-%m-%d') Fecha FROM blog WHERE Dominio = '{$dominioBlog}'");
 	}
 	else {
 		$dominioBlog = "";
@@ -38,6 +38,20 @@
 	<title>Ofertas de F&aacute;brica - Blog</title>
 	
 	<?php include_once 'php/linksHead.php';?>
+
+	<link href="<?php echo $raiz;?>css/equal-height-columns.css" rel="stylesheet" type="text/css">
+
+<?php 
+	if ($dominioBlog != "") {
+		$fila = $blog->fetch_assoc();
+?>
+	<meta property="og:title" content="Ofertas de Fábrica! - <?php echo utf8_decode($fila["Titulo"])?>" />
+	<meta property="og:image" content="http://ofertasdefabrica.com.ar/admin/<?php echo str_replace(' ', '%20', $fila["Imagen"])?>" />
+	<meta property="og:description" content="<?php echo utf8_decode($fila["Copete"])?>" />
+<?php 
+		$blog->data_seek(0);
+	}
+?>
 </head>
 <body>
 	<?php include_once 'php/header.php';?>
@@ -51,14 +65,23 @@
 			$salida = "";
 			
 			if ($dominioBlog != "") {
+				$salida.= $crlf . '<div class="row">';
 				$salida.= $crlf . '<div class="cajaRoja clickable" data-url="blog.php"><span class="glyphicon glyphicon-arrow-left"></span> Volver</div>';
+				$salida.= $crlf . '</div>';
 			}
 			
 			if (isset($blog)) {
+				if ($dominioBlog == "") {
+					$salida.= $crlf . '<div class="row row-eq-height" style="border:1px dotted #ccc;">';
+				}
 				while ($fila = $blog->fetch_assoc()) {
 					if ($dominioBlog == "") {
-						$salida.= $crlf . '<div class="col-md-4" style="min-height:720px; border:1px dotted #ccc;">';
+						$salida.= $crlf . '<div class="col-md-4" style="border-left:1px dotted #ccc; border-right:1px dotted #ccc;">';
 						$salida.= $crlf . '<br />';
+					}
+					else {
+						$salida.= $crlf . '<div class="col-md-8 col-md-offset-2">';
+						// $salida.= $crlf . '<div class="cajaRoja clickable" data-url="blog.php"><span class="glyphicon glyphicon-arrow-left"></span> Volver</div>';
 					}
 					
 					$salida.= $crlf . '<article>';
@@ -71,21 +94,20 @@
 					if ($dominioBlog == "") {
 						$salida.= $crlf . '<div class="text-center"><a href="blog/'.$fila["Dominio"].'"> <img src="admin/'.$fila["Imagen"].'" class="img-responsive" style="display:inherit;"></a></div>';
 						$salida.= $crlf . '<br />';
-					}
-					
-					if ($dominioBlog == "") {
 						$salida.= $crlf . '<p class="text-justify">'.utf8_decode($fila["Copete"]).'</p>';
 						$salida.= $crlf . '<div><a href="blog/'.$fila["Dominio"].'" target="_self"><span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true" style="font-size: 20px; margin-right: 25px; float: right !important; margin-bottom: 35px;"></span></a></div>';
 					}
 					else {
+						$salida.= $crlf . '<div class="text-center"><img src="admin/'.$fila["Imagen"].'" class="img-responsive" style="display:inherit;"></div>';
 						$salida.= $crlf . '<p class="text-justify">'.utf8_decode($fila["Descripcion"]).'</p>';
 					}
 					$salida.= $crlf . '<br />';
 					$salida.= $crlf . '</article>';
 					
-					if ($dominioBlog == "") {
-						$salida.= $crlf . '</div>';
-					}					
+					$salida.= $crlf . '</div>';
+				}
+				if ($dominioBlog == "") {
+					$salida.= $crlf . '</div>';
 				}
 			
 				//Armo el paginador

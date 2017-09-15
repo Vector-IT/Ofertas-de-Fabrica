@@ -165,12 +165,12 @@
 	</div>
 	
 	<div class="row text-center">
-		<img alt="Portada" src="admin/<?php echo $tipologia["Imagen"];?>" style="width: 40%; height: auto; margin:0 auto;" />
+		<img alt="Portada" src="admin/<?php echo $tipologia["Imagen"];?>" style="width: 75%; height: auto; margin:0 auto;" />
 	</div>
 	
 	<div class="row">
 		<div class="col-md-6 txtCenter">
-			<img alt="Plano" src="admin/<?php echo $tipologia["Plano"];?>" style="width: 80%; height: auto;" />
+			<img alt="Plano" src="admin/<?php echo $tipologia["Plano"];?>" style="width: 100%; height: auto;" />
 			<?php if ($tipologia["PDF"] != "") {?>
 			<br><span class="cajaRoja clickable" data-url="admin/<?php echo $tipologia["PDF"]?>">Descargar Ficha Técnica</span>
 			<?php }?>

@@ -6,7 +6,8 @@
 <link rel="shortcut icon" href="img/logo.png" type="image/png" />
 <link rel="apple-touch-icon" href="img/logo.png"/>
 
-<?php if ((strpos($_SERVER['QUERY_STRING'], 'tipologia=') === false) && (strpos($_SERVER['QUERY_STRING'], 'fabrica=') === false)) {?>
+<?php if ((strpos($_SERVER['QUERY_STRING'], 'tipologia=') === false) && (strpos($_SERVER['QUERY_STRING'], 'fabrica=') === false) && (strpos($_SERVER['QUERY_STRING'], 'blog=') === false)) {?>
+<!-- <?php echo $_SERVER["QUERY_STRING"]?> -->
 
 <meta property="og:title" content="Ofertas de Fábrica!" />
 <meta property="og:image" content="http://ofertasdefabrica.com.ar/img/logo2.png" />

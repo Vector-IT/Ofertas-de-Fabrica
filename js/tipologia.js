@@ -2,7 +2,8 @@ $(document).ready(function() {
 	$("#owl-imagenes").owlCarousel({
 		items: 4,
 		itemsDesktop : [1199,3],
-		itemsDesktopSmall : [979,3]
+		itemsDesktopSmall : [979,3],
+		autoPlay: true,
 	});
 	
 	$("#divMsjCoti").hide();
@@ -26,6 +27,16 @@ $(document).ready(function() {
 		initMap();
 	});
 
+	var imgActiva = 0;
+	setInterval(function() {
+		imgActiva++;
+
+		if (imgActiva == $(".itemImagen").length) {
+			imgActiva = 0;
+		}
+
+		$($(".itemImagen")[imgActiva]).click();
+	}, 5000);
 	
 	$(".itemImagen").click(function() {
 		if (!$(this).hasClass("imgActiva")) {

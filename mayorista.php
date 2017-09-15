@@ -32,15 +32,19 @@
 				$strSalida.= $crlf.'</div>';
 			
 				$strSalida.= '<div class="row divTipologias">';
-				$tipologias = cargarTabla("SELECT NumeTipo, NombTipo, Imagen FROM tipologias WHERE Mayorista = 1 AND NumeFabr = {$fabrica["NumeFabr"]}");
+				$tipologias = cargarTabla("SELECT NumeTipo, NombTipo, Imagen, Precio FROM tipologias WHERE Mayorista = 1 AND NumeFabr = {$fabrica["NumeFabr"]}");
 			
 				while ($fila = $tipologias->fetch_array()) {
 					$strSalida.= $crlf.'<div class="col-md-4 marginTop40 txtCenter clickable" data-url="fabrica/'. $fabrica["Dominio"] . "/" . str_replace(" ", "-", $fila["NombTipo"]) .'/">';
 					$strSalida.= $crlf.'<div class="imgTipologia" style="background: url(\'admin/'. $fila["Imagen"] . '\') center center/cover no-repeat;"></div>';
 					$strSalida.= $crlf.'<br><br>';
-					$strSalida.= $crlf.'<span class="cuadroNegro">';
+					// $strSalida.= $crlf.'<span class="cuadroNegro">';
+					// $strSalida.= $fila["NombTipo"];
+					// $strSalida.= '</span>';
+					$strSalida.= $crlf.'<div class="cuadroNegro">';
 					$strSalida.= $fila["NombTipo"];
-					$strSalida.= '</span>';
+					$strSalida.= '<br><span class="txtBold rojo">$ '. $fila["Precio"] . '</span>';
+					$strSalida.= '</div>';
 					$strSalida.= $crlf.'</div>';
 				}
 				$strSalida.= $crlf.'</div>';

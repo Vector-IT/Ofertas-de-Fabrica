@@ -187,11 +187,20 @@
 								  <i class="fa fa-circle fa-stack-2x"></i>
 								  <i class="fa fa-check fa-stack-1x fa-inverse"></i>
 								</span>
-								<span class="txtBig">Plan a medida</span>
+								<span class="txtBig">Financiaci&oacute;n 100%</span>
 								<div id="optCotiText-3" class="optCotiText">
-									Usted podra armar su plan a medida haciendo aportes m&iacute;nimos 
+									<!-- Usted podra armar su plan a medida haciendo aportes m&iacute;nimos 
 									mensuales, para mayor informaci&oacute;n, un asesor se comunicar&aacute; 
-									con Usted.
+									con Usted. -->
+									La financiaci&oacute;n 100% de un bien elegido, (sea cual sea el tipo de construcci&oacute;n industrializada que desee) es una operatoria simple.<br>
+
+Paso 1: USTED decide que tipolog&iacute;a de vivienda desea. Podemos sugerirle algunos planos referenciales o usted solicitar algo que tenga en mente. Traducimos en cantidad de metros cubiertos y semi cubiertos y le damos un valor exacto de la vivienda en la ciudad que usted determine.
+<br>
+Paso 2: Usted decide cuanto invertir / aportar mensualmente. Las inversiones van desde los $3.000  y pueden ser modificadas mes a mes por el cliente de acuerdo a sus posibilidades hasta  completar el 70% del valor del producto elegido. Al llegar a dicho porcentaje, usted ya est&aacute; en condiciones de solicitar la vivienda que eligi&oacute; o cambiar por otra si as&iacute; lo desea.
+<br>
+Paso 3: FELICITACIONES!!! Adjudique su vivienda a partir de la cuota 6. Si con sus aportes mensuales no ha llegado al porcentaje establecido en el paso 2, deber&aacute; cumplimentarlo con un aporte extraordinario hasta alcanzarlo o seguir con sus inversiones hasta que llegue al monto establecido.
+<br><br>
+El saldo (si existiera) se abonar&aacute; en 12, 24 &oacute; 36 inversiones fijas y en pesos en una nueva financiaci&oacute;n con intereses. El cliente tiene la opci&oacute;n de tomar tal financiaci&oacute;n o bien cancelar la deuda de contado o con una financiaci&oacute;n externa (que haya conseguido de manera particular)
 								</div>
 								<div class="clearer"></div>
 							</div>

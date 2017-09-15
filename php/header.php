@@ -36,6 +36,7 @@
 				<li><a id="ofertas" href="ofertas.php">Ofertas</a></li>
 				<li><a id="premium" href="premium.php">Premium</a></li>
 				<li><a id="mayorista" href="mayorista.php">Mayorista</a></li>
+				<li><a id="financiacion" href="financiacion100.php">Financiaci&oacute;n 100%</a></li>
 				<li><a id="blog" href="blog.php">Blog</a></li>
 				<li><a id="contacto" href="contacto.php">Contacto</a></li>
 			</ul>

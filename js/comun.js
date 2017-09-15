@@ -71,6 +71,9 @@ function checkMenu() {
 	else if (direccion.indexOf("mayorista") > -1) {
 		$("#mayorista").addClass("activo");
 	}
+	else if (direccion.indexOf("financiacion") > -1) {
+		$("#financiacion").addClass("activo");
+	}
 	else if (direccion.indexOf("blog") > -1) {
 		$("#blog").addClass("activo");
 	}

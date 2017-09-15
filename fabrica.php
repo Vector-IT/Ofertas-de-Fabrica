@@ -11,7 +11,7 @@
 		
 		$tabla->free();
 		
-		$tipologias = cargarTabla("SELECT NumeTipo, NombTipo, Imagen, Oferta, Premium FROM tipologias WHERE NumeFabr = {$fabrica["NumeFabr"]} AND Mayorista != 1");
+		$tipologias = cargarTabla("SELECT NumeTipo, NombTipo, Imagen, Oferta, Premium, Precio FROM tipologias WHERE NumeFabr = {$fabrica["NumeFabr"]} AND Mayorista != 1");
 	}
 	else
 		header("location:index.php");
@@ -79,9 +79,13 @@
 					$strSalida.= $crlf.'<br>';
 				
 				$strSalida.= $crlf.'<div class="clearer"></div>';
-				$strSalida.= $crlf.'<span class="cuadroNegro">';
+				// $strSalida.= $crlf.'<span class="cuadroNegro">';
+				// $strSalida.= $fila["NombTipo"];
+				// $strSalida.= '</span>';
+				$strSalida.= $crlf.'<div class="cuadroNegro">';
 				$strSalida.= $fila["NombTipo"];
-				$strSalida.= '</span>';
+				$strSalida.= '<br><span class="txtBold rojo">$ '. $fila["Precio"] . '</span>';
+				$strSalida.= '</div>';
 				$strSalida.= $crlf.'</div>';
 			}
 			
