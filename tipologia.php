@@ -204,7 +204,7 @@
 				</div>
 				<div class="row bordeAbajo">
 					<div class="col-md-6 txtLeft txtBold">
-						Adicionales
+						Adicionales Incluídos
 					</div>
 					<div class="col-md-6 txtLeft">
 						<?php
