@@ -26,6 +26,9 @@ $(document).ready(function() {
 
 		initMap();
 	});
+	$('#mdlFlete').on('shown.bs.modal', function () {
+		initMap2();
+	});
 
 	var imgActiva = 0;
 	setInterval(function() {
@@ -433,6 +436,7 @@ function validarCoti() {
 }
 
 var map;
+var map2;
 var marker;
 function initMap() {
 	map = new google.maps.Map(document.getElementById('map'), {
@@ -459,6 +463,31 @@ function initMap() {
 		buscarLoc(geocoder);
 	});
 }			
+function initMap2() {
+	map2 = new google.maps.Map(document.getElementById('map2'), {
+		center: {lat: -31.420083, lng: -64.188776},
+		zoom: 8
+	});
+	var geocoder = new google.maps.Geocoder();
+	
+	map2.addListener('click', function(event){
+		if (marker != null)
+			marker.setMap(null);
+		
+		marker = new google.maps.Marker({
+			position: event.latLng,
+			map: map2
+		});
+
+		$("#latlng2").val(event.latLng.lat() + ',' + event.latLng.lng());
+		
+		calcDistancia2(geocoder);
+	});
+
+	document.getElementById('btnBuscar2').addEventListener('click', function() {
+		buscarLoc2(geocoder);
+	});
+}			
 
 function buscarLoc(geocoder) {
 	
@@ -479,6 +508,30 @@ function buscarLoc(geocoder) {
 			$("#latlng").val(results[0].geometry.location.lat() + ',' + results[0].geometry.location.lng());
 			
 			calcDistancia(geocoder);
+		} else {
+			alert('Localidad no encontrada');
+		}
+	});
+}
+function buscarLoc2(geocoder) {
+	
+	var address = $("#buscar2").val();
+	
+	geocoder.geocode({'address': address}, function(results, status) {
+		if (status === google.maps.GeocoderStatus.OK) {
+			map2.setCenter(results[0].geometry.location);
+			
+			if (marker != null)
+				marker.setMap(null);
+			
+			marker = new google.maps.Marker({
+				map: map2,
+				position: results[0].geometry.location
+			});
+			
+			$("#latlng2").val(results[0].geometry.location.lat() + ',' + results[0].geometry.location.lng());
+			
+			calcDistancia2(geocoder);
 		} else {
 			alert('Localidad no encontrada');
 		}
@@ -532,6 +585,59 @@ function calcDistancia(geocoder) {
 					else {
 						$("#txtDistancia").html("Imposible calcular la distancia al punto seleccionado!");
 						$("#txtFlete").html("");
+					}
+				}
+			}
+		}
+	});	
+}
+function calcDistancia2(geocoder) {
+	//Calculo la distancia
+	var service = new google.maps.DistanceMatrixService;
+	
+	var aux = $('#latlng2').val();
+	var lat = aux.substring(0, aux.indexOf(','));
+	var lng = aux.substring(aux.indexOf(',')+1);
+	var origen = new google.maps.LatLng(lat, lng);
+	
+	aux = $('#hdnLatLngFabrica').val();
+	lat = aux.substring(0, aux.indexOf(','));
+	lng = aux.substring(aux.indexOf(',')+1);
+	var destino = new google.maps.LatLng(lat, lng);
+	
+	service.getDistanceMatrix({
+		origins: [origen],
+		destinations: [destino],
+		travelMode: google.maps.TravelMode.DRIVING,
+		unitSystem: google.maps.UnitSystem.METRIC,
+		avoidHighways: false,
+		avoidTolls: false
+	}, function(response, status) {
+		if (status == google.maps.DistanceMatrixStatus.OK) {
+			var origins = response.originAddresses;
+			var destinations = response.destinationAddresses;
+
+			for (var i = 0; i < origins.length; i++) {
+				var results = response.rows[i].elements;
+				for (var j = 0; j < results.length; j++) {
+					var element = results[j];
+					if (element.status == 'OK') {
+						var distance = element.distance.text;
+						var duration = element.duration.text;
+						var from = origins[i];
+						var to = destinations[j];
+						
+						$("#distancia2").val(Math.round(element.distance.value / 1000  * 10) / 10);
+						
+						var preciokm = $("#preciokm2").val();
+						var flete = $("#distancia2").val() * preciokm;
+						flete = "$ " + Math.round(flete * 100) / 100;
+						$("#txtDistancia2").html("Distancia de traslado: " + distance);
+						$("#txtFlete2").html("Precio total del traslado: " + flete);
+					}
+					else {
+						$("#txtDistancia2").html("Imposible calcular la distancia al punto seleccionado!");
+						$("#txtFlete2").html("");
 					}
 				}
 			}

@@ -30,6 +30,7 @@
 		</div>
 		<div class="collapse navbar-collapse" id="menu">
 			<ul class="nav navbar-nav navbar-center">
+				<li><a id="home" href="<?php echo $raiz?>">Home</a></li>
 				<li><a id="quienes" href="quienes-somos.php">Quienes Somos</a></li>
 				<li><a id="caracteristicas" href="caracteristicas.php">Caracter&iacute;sticas</a></li>
 				<li><a id="fabricas" href="#"> F&aacute;bricas <span class="caret"></span></a></li>

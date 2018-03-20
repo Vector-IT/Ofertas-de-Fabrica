@@ -8,6 +8,11 @@
 	<title>Ofertas de F&aacute;brica - Financiación 100%</title>
 	
 	<?php include_once 'php/linksHead.php';?>
+
+	<meta property="og:title" content="Ofertas de Fábrica!" />
+	<meta property="og:image" content="http://ofertasdefabrica.com.ar/img/logo2.png" />
+	<meta property="og:description" content="La financiación 100% de un bien elegido, (sea cual sea el tipo de construcción industrializada que desee) es una operatoria simple." />
+
 </head>	
 <body>
 	<?php include_once 'php/header.php';?>

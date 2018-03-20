@@ -50,7 +50,10 @@ $(document).ready(function() {
 function checkMenu() {
 	var direccion = location.href;
 	
-	if (direccion.indexOf("quienes-somos.php") > -1) {
+	if (direccion.indexOf("index.php") > -1 || direccion.substr(-1) == '/') {
+		$("#home").addClass("activo");
+	}
+	else if (direccion.indexOf("quienes-somos.php") > -1) {
 		$("#quienes").addClass("activo");
 	}
 	else if (direccion.indexOf("caracteristicas.php") > -1) {

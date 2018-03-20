@@ -228,13 +228,24 @@
 					</div>
 				</div>
 				<div class="row marginTop40" style="font-size: 12pt;">
+				<?php if ($tipologia["Financiacion"] == "1") {
+                    ?>
 					<div class="col-md-6">
+				<?php
+                } else {?>
+					<div class="col-md-12">
+				<?php }?>
 						<button class="btn btn-default btnblink" data-toggle="modal" data-target="#proceso-dialog" onclick="selectCoti(1);">COMPRA DIRECTA</button>
 					</div>
+				<?php if ($tipologia["Financiacion"] == "1") {?>
 					<div class="col-md-6">
-						<?php if ($tipologia["Financiacion"] == "1") {?>
-							<button class="btn btn-default btnblink" data-toggle="modal" data-target="#proceso-dialog" onclick="selectCoti(2);">FINANCIACI&Oacute;N</button>
-						<?php }?>
+						<button class="btn btn-default btnblink" data-toggle="modal" data-target="#proceso-dialog" onclick="selectCoti(2);">FINANCIACI&Oacute;N</button>
+					</div>
+				<?php }?>
+				</div>
+				<div class="row" style="font-size: 12pt;">
+					<div class="col-md-12">
+						<button class="btn btn-default btnblink" data-toggle="modal" data-target="#mdlFlete">CONOCÉ EL COSTO DEL FLETE</button>
 					</div>
 				</div>
 			</div>
@@ -355,6 +366,39 @@
 	</div>
 	
 	<div class="clearer marginTop40"></div>
+
+	<div class="modal fade" id="mdlFlete" tabindex="-1" role="dialog">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel"><?php echo $tipologia["NombTipo"]?> - $<?php echo $tipologia["Precio"]?></h4>
+				</div>
+				<div class="modal-body">
+					<h3 class="fontAbel">Us&aacute; el mapa para seleccionar la ubicaci&oacute;n y el costo del traslado</h3>
+					<div class="row">
+						<div class="col-md-8" style="padding-left: 0;">
+							<div>
+								<input type="hidden" id="latlng2" />
+								<input type="hidden" id="distancia2" />
+								<input type="hidden" id="preciokm2" value="<?php echo $fabrica["PrecioKm"]?>" />
+								<input type="text" class="form-control" id="buscar2" placeholder="Ingrese localidad" />
+							</div>
+						</div>
+						<div class="col-md-2">
+							<button class="btn btn-default" id="btnBuscar2">Buscar</button>
+						</div>
+					</div>
+					<div class="row">
+						<div id="map2" style="height: 300px;"></div>
+						<div id="txtDistancia2"></div>
+						<div id="txtFlete2"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	
 	<?php 
 		include_once 'php/footer.php';

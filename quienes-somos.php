@@ -28,7 +28,7 @@
 				</p>
 				<p class="txtBig" style="text-align: justify;">
 					Ofertas de F&aacute;brica brinda servicio a cientos de usuarios y crea un mercado online para la 
-					negociaci&oacute;n de un amplio mercado de bienes y servicios de una forma f&aacute;cil, segura y eficiente. 
+					negociaci&oacute;n de bienes y servicios de una forma f&aacute;cil, segura y eficiente. 
 					Promoviendo la mejora en calidad y precios con Ofertas directamente de la F&aacute;brica al cliente, SIN INTERMEDIARIOS.
 				</p>
 				<p class="txtBig" style="text-align: justify;">
