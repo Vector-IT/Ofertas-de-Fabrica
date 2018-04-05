@@ -36,7 +36,7 @@
 	
 	<?php include_once 'php/linksHead.php';?>
 	
-	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCejt6Qtfm6iuDhzNDyQKIWkYo7U3nrhY4"></script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUKpFZhPAAWZeSm2Hig0O6xrcR0tNbld4"></script>
 	
 	<link href="<?php echo $raiz;?>css/tipologia.css" rel="stylesheet" type="text/css">
 

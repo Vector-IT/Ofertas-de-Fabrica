@@ -21,7 +21,7 @@
 	<script src="js/advanced.js"></script>
 	<script src="js/wysihtml5-0.3.0.js"></script>
 	
-	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCejt6Qtfm6iuDhzNDyQKIWkYo7U3nrhY4&callback=initMap"></script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUKpFZhPAAWZeSm2Hig0O6xrcR0tNbld4&callback=initMap"></script>
 	<script type="text/javascript">
 		var editor;
 		

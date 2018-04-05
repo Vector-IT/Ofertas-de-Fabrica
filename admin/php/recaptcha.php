@@ -2,11 +2,11 @@
 ini_set("log_errors", 1);
 ini_set("error_log", "php-error.log");
 
-$secret = '6LdJMQ4UAAAAAHSP1KcbUFrowqomfuEk0pxSx5Yd';
+$secret = '6Len-1AUAAAAAF8NTHAodfD7ldn0dgfRfMX2ZzIG';
 
 $url = 'https://www.google.com/recaptcha/api/siteverify';
 $fields = array(
-        'secret' => "6LdJMQ4UAAAAAHSP1KcbUFrowqomfuEk0pxSx5Yd",
+        'secret' => "6Len-1AUAAAAAF8NTHAodfD7ldn0dgfRfMX2ZzIG",
         'response' => $_POST["response"]
 );
 $datos = http_build_query($fields);

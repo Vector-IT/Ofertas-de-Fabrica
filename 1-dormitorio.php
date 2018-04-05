@@ -22,7 +22,7 @@
 			$strSalida = "";
 			
 			$strSQL = "SELECT t.NumeTipo, t.NombTipo, t.Imagen,";
-			$strSQL.= " f.NombFabr, f.Logo, f.Dominio";
+			$strSQL.= " f.NombFabr, f.Logo, f.Dominio, t.Precio";
 			$strSQL.= " FROM tipologias t";
 			$strSQL.= " INNER JOIN fabricas f ON t.NumeFabr = f.NumeFabr";
 			$strSQL.= " WHERE t.CantHabi = 1";
@@ -51,9 +51,10 @@
 				
 				$strSalida.= $crlf.'<div class="imgTipologia clickable" data-url="fabrica/'. $fila["Dominio"] . "/" . str_replace(" ", "-", $fila["NombTipo"]) .'/" style="background: url(\'admin/'. $fila["Imagen"] . '\') center center/cover no-repeat;"></div>';
 				$strSalida.= $crlf.'<br><br>';
-				$strSalida.= $crlf.'<span class="cuadroNegro">';
+				$strSalida.= $crlf.'<div class="cuadroNegro">';
 				$strSalida.= $fila["NombTipo"];
-				$strSalida.= '</span>';
+				$strSalida.= '<br><span class="txtBold rojo">$ '. $fila["Precio"] . '</span>';
+				$strSalida.= '</div>';
 				$strSalida.= $crlf.'</div>';
 				$I++;
 			}

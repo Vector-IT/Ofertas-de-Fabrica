@@ -275,7 +275,7 @@
 					</div>
 					<div class="row">
 						<div class="col-md-6">
-							<div class="g-recaptcha" data-sitekey="6LdJMQ4UAAAAAPAVEp8vOCD0HAFKuT4Af4qZde7R"></div>
+							<div class="g-recaptcha" data-sitekey="6Len-1AUAAAAADfipZg2YNG4H-CwroqKqxs78aZa"></div>
 						</div>
 					</div>
 					

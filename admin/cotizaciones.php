@@ -15,7 +15,7 @@
 	?>
 	<script src="<?php echo $raiz;?>js/jquery.ns-autogrow.min.js"></script>
 	
-	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCejt6Qtfm6iuDhzNDyQKIWkYo7U3nrhY4&callback=initMap"></script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUKpFZhPAAWZeSm2Hig0O6xrcR0tNbld4&callback=initMap"></script>
 				
 	<script type="text/javascript">
 		$(document).ready(function() {
