@@ -8,6 +8,7 @@
   ga('send', 'pageview');
 
 </script>
+
 <div class="header">
 	<?php if (!isset($_SESSION['is_logged_in'])){ ?>
 		<span class="clickable" data-toggle="modal" data-target="#login-dialog">ACCEDER</span>
