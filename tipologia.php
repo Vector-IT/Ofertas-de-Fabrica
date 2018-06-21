@@ -75,6 +75,15 @@
     } else {
       // The person is not logged into Facebook, so we're not sure if
       // they are logged into this app or not.
+		FB.login(function(response) {
+			if (response.authResponse) {
+				console.log('Welcome!  Fetching your information.... ');
+				testAPI();
+			} else {
+				console.log('User cancelled login or did not fully authorize.');
+			}
+		});
+
     	$('#status').html('');
 
     	$('#nombre').val('');
@@ -93,11 +102,11 @@
 
   window.fbAsyncInit = function() {
   FB.init({
-    appId      : '237103856628974',
-    cookie     : true,  // enable cookies to allow the server to access 
-                        // the session
-    xfbml      : true,  // parse social plugins on this page
-    version    : 'v2.5' // use graph api version 2.5
+    appId		: '237103856628974',
+    cookie		: true,  // enable cookies to allow the server to access the session
+    xfbml		: true,  // parse social plugins on this page
+    version		: 'v3.0', // use graph api version 2.5
+	status		: true
   });
 
   // Now that we've initialized the JavaScript SDK, we call 
@@ -119,14 +128,14 @@
   };
 
   // Load the SDK asynchronously
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/es_LA/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) return;
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/es_LA/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+  
   // Here we run a very simple test of the Graph API after login is
   // successful.  See statusChangeCallback() for when this call is made.
   function testAPI() {
