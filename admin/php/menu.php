@@ -30,6 +30,11 @@
 		<div class="flRight"><i class="fa fa-file-text fa-fw"></i></div>
 	</div>
 	<div class="separator"></div>
+	<div class="item" data-url="/vehiculos/admin/" title="Vehículos">
+		Vehículos
+		<div class="flRight"><i class="fa fa-car fa-fw"></i></div>
+	</div>
+	<div class="separator"></div>
 	<?php if ($_SESSION['TipoUsua'] == "1") { ?>
 	<div class="item" data-url="usuarios.php" title="Usuarios">
 		Usuarios
