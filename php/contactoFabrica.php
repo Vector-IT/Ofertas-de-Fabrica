@@ -21,6 +21,12 @@
 							</div>
 						</div>			
 						<div class="form-group">
+							<label for="telefono" class="control-label col-md-2">Tel&eacute;fono:</label>
+							<div class="col-md-7">
+								<input type="text" class="form-control" id="telefono" required />
+							</div>
+						</div>
+						<div class="form-group">
 							<label for="email" class="control-label col-md-2">E-mail:</label>
 							<div class="col-md-7">
 								<input type="email" class="form-control" id="email" required />

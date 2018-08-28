@@ -5,6 +5,7 @@ ini_set("error_log", "php-error.log");
 	if($_SERVER["REQUEST_METHOD"] == "POST") {
 		$nombre = $_POST['Nombre'];
 		$email = $_POST['Email'];
+		$telefono = (isset($_POST['Telefono'])? $_POST['Telefono']: '');
 		$mensaje = $_POST['Mensaje'];
 		
 		if (isset($_POST["Para"])) {
@@ -23,7 +24,7 @@ ini_set("error_log", "php-error.log");
 			$titulo = 'Contacto en Ofertas de Fábrica';
 		}
 
-		$mensaje = "Nombre: $nombre<br>E-Mail: $email<br>Mensaje:<br>$mensaje";
+		$mensaje = "Nombre: {$nombre}<br>Telefono: {$telefono}<br>E-Mail: {$email}<br>Mensaje:<br>{$mensaje}";
 
 		$msjCorreo = '<html><head><title>' . $titulo . '</title></head><body>';
 		$msjCorreo.= $mensaje;

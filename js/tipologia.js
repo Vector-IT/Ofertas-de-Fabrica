@@ -252,7 +252,7 @@ $(document).ready(function() {
 		
 		impocuota = (precio - entrega);
 		impocuota = impocuota * ((cantcuotas * porcentaje) + 1) / cantcuotas;
-		impocuota = Math.round(impocuota * 100) / 100;
+		impocuota = Math.round(impocuota);
 		
 		$("#impocuota").val(impocuota);
 		

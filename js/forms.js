@@ -54,6 +54,7 @@ $(function() {
 						var frmData = new FormData();
 						frmData.append("Nombre", $('#nombre').val().trim() + " " + $('#apellido').val().trim());
 						frmData.append("Email", $("#email").val().trim());
+						frmData.append("Telefono", $("#telefono").val().trim());
 						frmData.append("Mensaje", $("#mensaje").val().trim());
 						
 						if ($("#para").length) {
