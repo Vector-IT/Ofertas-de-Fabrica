@@ -5,7 +5,8 @@
 			<option value="" selected>Dormitorios</option>
 			<option value="1">1 Dormitorio</option>
 			<option value="2">2 Dormitorios</option>
-			<option value="3">3 Dormitorios o m&aacute;s</option>
+			<option value="3">3 Dormitorios</option>
+			<option value="4">4 Dormitorios o m&aacute;s</option>
 		</select>
 		<select name="Precio" id="busq-precio" class="form-control">
 			<option value="" selected>Precio</option>
